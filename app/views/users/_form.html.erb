@@ -1,0 +1,31 @@
+<%= form_for(@user, :class => 'form-group', :id => 'contact') do |f|  %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "erreur",) %> Il semblerait qu'un champ soit mal renseigné</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    
+    <%= f.text_field :name, :class => 'form-group', :placeholder => 'Nom' %>
+  </div>
+  <div>
+    
+    <%= f.text_field :phone, :class => 'form-group', :placeholder => 'Téléphone' %>
+  </div>
+  <div>
+    
+    <%= f.text_field :email, :class => 'form-group', :placeholder => 'Email' %>
+  </div>
+  <div>
+   <%= f.submit 'Envoyer',:class => 'btn-xl', :onclick => 'document.getElementById("contact").submit();' %>
+  </div>
+<% end %>
+
+
